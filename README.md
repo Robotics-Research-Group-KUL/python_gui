@@ -9,7 +9,7 @@ A simple interface that reading from an xml file with the format
 
 ```
 <list>
-    <button name='Start' event='e_start' tooltip='start the robot'/>`
+    <button name='Start' event='e_start' tooltip='start the robot'/>
     <button name='Stop' event='e_stop'/>
 </list>
 ```
