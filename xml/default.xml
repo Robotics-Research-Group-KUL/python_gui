@@ -1,4 +1,4 @@
 <list>
-<button name='Start' event='e_start' popup='start the robot'/>
+<button name='Start' event='e_start' tooltip='start the robot'/>
 <button name='Stop' event='e_stop'/>
 </list>

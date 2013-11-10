@@ -48,9 +48,9 @@ class Example(QtGui.QWidget):
             btn=QtGui.QPushButton(child.get('name'), self)
             grid.addWidget(btn,i,0)
             btn.clicked.connect(self.buttonClicked) 
-            popup_text=child.get('popup')
-            if popup_text!=None:
-                btn.setToolTip(popup_text)
+            tooltip_text=child.get('tooltip')
+            if tooltip_text!=None:
+                btn.setToolTip(tooltip_text)
             
             i=i+1
  
