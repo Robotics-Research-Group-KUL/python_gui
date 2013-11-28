@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(event_gui)
+project(python_gui)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -127,6 +127,11 @@ include_directories(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+
+ install(PROGRAMS
+   scripts/gui_sender.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS event_gui event_gui_node

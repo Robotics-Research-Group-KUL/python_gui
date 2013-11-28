@@ -1,11 +1,11 @@
 GUI in python
 ================================
 
-Collection of small program to use with ros.
+Collection of small programs to use with ros.
 
 gui_sender.py
 -------------------------
-A simple interface that reading from an xml file with the format
+A simple interface that reads from an xml file with the format
 
 ```
 <list>

@@ -1,0 +1,15 @@
+<package>
+    <description brief="App_">
+        This package contains an application to use Gianni's cylindrical coordinate space control
+    </description>
+    <!--NOTE: set the license and author before you publish this code-->
+    <license>BSD/LGPL2.0</license>
+    <author>Bert Willaert</author>
+    <depend package="rtt" />
+    <depend package="ocl" />
+    <depend package="naxes_motion_control"/>
+    <depend package="geometry_msgs"/>
+
+
+</package>
+
