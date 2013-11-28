@@ -10,7 +10,7 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty
 
 
-roslib.load_manifest("event_gui")
+roslib.load_manifest("python_gui")
 
     
 
@@ -25,7 +25,8 @@ class Example(QtGui.QWidget):
 
 
         #ros related stuff
-        self.pub=rospy.Publisher("/events",String)
+        topic_name=rospy.get_param('topic_name', "/events")
+        self.pub=rospy.Publisher(topic_name,String)
         self.string_map={}
         self.buttons={}
         self.create_buttons()
@@ -35,9 +36,9 @@ class Example(QtGui.QWidget):
         QtGui.QToolTip.setFont(QtGui.QFont('SansSerif', 10))
         file_name=rospy.get_param('xml_button_file', None)
         if file_name==None:
-            file_name =unicode(get_pkg_dir("event_gui"))+"/xml/default.xml"
+           file_name =unicode(get_pkg_dir("python_gui"))+"/xml/default.xml"
             
-        print file_name
+        print "file name:\n"+file_name
         file_map = etree.parse(file_name)
         
         list_event =  file_map.getroot()
