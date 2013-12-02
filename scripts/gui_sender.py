@@ -35,8 +35,11 @@ class Example(QtGui.QWidget):
     def create_buttons(self):
         QtGui.QToolTip.setFont(QtGui.QFont('SansSerif', 10))
         file_name=rospy.get_param('xml_button_file', None)
+        file_name_pkg=rospy.get_param('xml_button_file_pkg', None)
         if file_name==None:
            file_name =unicode(get_pkg_dir("python_gui"))+"/xml/default.xml"
+        elif file_name_pkg != None:
+           file_name = unicode(get_pkg_dir(file_name_pkg))+file_name
             
         print "file name:\n"+file_name
         file_map = etree.parse(file_name)

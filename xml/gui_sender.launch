@@ -1,4 +1,6 @@
 <launch>
   <param name="topic_name" value="/events" type="str" />
+  <param name="xml_button_file_pkg" value="python_gui" type="str" />
+  <param name="xml_button_file" value="/xml/default.xml" type="str" />
   <node name="sender" pkg="python_gui" type="gui_sender.py"/>
 </launch>
