@@ -40,9 +40,9 @@ cd scripts
 parameters
 ----------
 See xml/gui_sender.launch for an example with the default values.
-*topic_name: name of the topic to publish the events on
-*xml_button_file_pkg: package where to find the xml_button_file, its location is apended to the xml_button_file value
-*xml_button_file: location of the xml file with the event buttons to create: full path or path from xml_button_file_pkg location (start with /)
+* topic_name: name of the topic to publish the events on
+* xml_button_file_pkg: package where to find the xml_button_file, its location is apended to the xml_button_file value
+* xml_button_file: location of the xml file with the event buttons to create: full path or path from xml_button_file_pkg location (start with /)
 
 orocos integration
 -----
