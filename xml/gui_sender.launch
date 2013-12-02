@@ -1,0 +1,4 @@
+<launch>
+  <param name="topic_name" value="/events" type="str" />
+  <node name="sender" pkg="python_gui" type="gui_sender.py"/>
+</launch>
