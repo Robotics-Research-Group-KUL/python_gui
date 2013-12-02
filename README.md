@@ -36,3 +36,7 @@ roscore
 cd scripts
 ./gui_sender.py
 ```
+orocos integration
+-----
+The file 'lua_components/signal_echo.lua'  is a an orocos component realized in lua, that reads a std_msgs/String from a topic and echos as a normal string.
+to connect easily with components running rFSM.  
