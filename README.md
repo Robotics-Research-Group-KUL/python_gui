@@ -41,9 +41,9 @@ parameters
 ----------
 See xml/gui_sender.launch for an example with the default values.
 
-* topic\_name: name of the topic to publish the events on
-* xml\_button\_file\_pkg: package where to find the xml\_button\_file, its location is apended to the xml\_button\_file value
-* xml\_button\_file: location of the xml file with the event buttons to create: full path or path from xml\_button\_file\_pkg location (start with /)
+ * topic\_name: name of the topic to publish the events on
+ * xml\_button\_file\_pkg: package where to find the xml\_button\_file, its location is apended to the xml\_button\_file value
+ * xml\_button\_file: location of the xml file with the event buttons to create: full path or path from xml\_button\_file\_pkg location (start with /)
 
 orocos integration
 -----
