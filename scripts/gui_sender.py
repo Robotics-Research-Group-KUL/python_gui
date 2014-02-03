@@ -84,13 +84,23 @@ class Example(QtGui.QWidget):
                                     event_to_send)
         self.pub.publish(event_to_send)
 
-        
+def sigint_handler(*args):
+    """Handler for the SIGINT signal."""
+    sys.stderr.write('\r')
+    QtGui.QApplication.quit()      
+import signal 
 def main():
     rospy.init_node("sender")
+    signal.signal(signal.SIGINT, sigint_handler)
     app = QtGui.QApplication(sys.argv)
+    timer = QtCore.QTimer()
+    timer.start(500)  # You may change this if you wish.
+    timer.timeout.connect(lambda: None)  # Let the interpreter run each 500 ms.
     ex = Example()
-    sys.exit(app.exec_())
-
+     
+    status = app.exec_()
+    sys.exit(status)
+   
 
 if __name__ == '__main__':
     main()
