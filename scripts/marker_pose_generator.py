@@ -149,8 +149,9 @@ if __name__=="__main__":
     p.position.z=0.5;
     p.orientation.w=1.0;
     starting_pose=rospy.get_param('starting_pose', p)
+    topic_name=rospy.get_param('topic_name', "/events")
     pub_pose=rospy.Publisher('desired_pose',Pose)
-    pub_event=rospy.Publisher('events',String)
+    pub_event=rospy.Publisher(topic_name,String)
     
     # create an interactive marker server on the topic namespace simple_marker
     server = InteractiveMarkerServer("desired_pose_marker")
