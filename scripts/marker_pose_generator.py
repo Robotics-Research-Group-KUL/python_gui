@@ -146,8 +146,14 @@ if __name__=="__main__":
     event_on_click=rospy.get_param('event_on_click', "e_go_new_pos")
     
     p=Pose()
-    p.position.z=0.5;
-    p.orientation.w=1.0;
+    p.position.x = -0.607
+    p.position.y = 0
+    p.position.z = 0.592462
+    p.orientation.x = -0.000112287
+    p.orientation.y = -0.705421
+    p.orientation.z = 0.000413181
+    p.orientation.w = 0.708788 
+
     starting_pose=rospy.get_param('starting_pose', p)
     topic_name=rospy.get_param('topic_name', "/events")
     pub_pose=rospy.Publisher('desired_pose',Pose)
