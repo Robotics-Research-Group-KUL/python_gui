@@ -9,6 +9,10 @@ from interactive_markers.interactive_marker_server import *
 from interactive_markers.menu_handler import *
 from geometry_msgs.msg import Pose
 from std_msgs.msg import String
+
+starting_pose=Pose()
+
+
 #roslib.load_manifest("python_gui")
 def make6DofMarker( int_marker,fixed ):
     
@@ -138,25 +142,37 @@ def processFeedback(feedback):
         rospy.loginfo(  ": new Pose is  " + str(feedback.pose))
 
 
+def save_callback(data):
+    global starting_pose
+    starting_pose=data
+    rospy.loginfo(rospy.get_caller_id()+": New base pose: %s",p)
 
 if __name__=="__main__":
     rospy.init_node("simple_marker")
     # read parameters
     ref_frame_name=rospy.get_param('ref_name', "/base_link")
     event_on_click=rospy.get_param('event_on_click', "e_go_new_pos")
-    
+  
+    # p.position.x = -0.607
+    # p.position.y = 0
+    # p.position.z = 0.592462
+    # p.orientation.x = -0.000112287
+    # p.orientation.y = -0.705421
+    # p.orientation.z = 0.000413181
+    # p.orientation.w = 0.708788 
     p=Pose()
-    p.position.x = -0.607
+    p.position.x = -0.5
     p.position.y = 0
     p.position.z = 0.592462
-    p.orientation.x = -0.000112287
-    p.orientation.y = -0.705421
-    p.orientation.z = 0.000413181
-    p.orientation.w = 0.708788 
+    p.orientation.x = -0.0086194900795817
+    p.orientation.y = 0.010391005314887
+    p.orientation.z = 0.70719349384308
+    p.orientation.w = 0.70689100027084
 
     starting_pose=rospy.get_param('starting_pose', p)
     topic_name=rospy.get_param('topic_name', "/events")
     pub_pose=rospy.Publisher('desired_pose',Pose)
+    sub_pose=rospy.Subscriber('base_pose',Pose,save_callback)
     pub_event=rospy.Publisher(topic_name,String)
     
     # create an interactive marker server on the topic namespace simple_marker
