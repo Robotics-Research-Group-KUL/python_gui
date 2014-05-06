@@ -19,9 +19,9 @@ def make6DofMarker( int_marker,fixed ):
     # insert a box
     box_marker = Marker()
     box_marker.type = Marker.CUBE
-    box_marker.scale.x = 0.2
-    box_marker.scale.y = 0.2
-    box_marker.scale.z = 0.2
+    box_marker.scale.x = 0.06
+    box_marker.scale.y = 0.06
+    box_marker.scale.z = 0.06
     box_marker.color.r = 0.0
     box_marker.color.g = 0.5
     box_marker.color.b = 0.5
@@ -186,7 +186,7 @@ if __name__=="__main__":
     int_marker.pose=starting_pose
     # create marker
     make6DofMarker( int_marker,False )
-    int_marker.scale = 0.3
+    int_marker.scale = 0.1
     # add the interactive marker to our collection &
     # tell the server to call processFeedback() when feedback arrives for it
     server.insert(int_marker, processFeedback)
