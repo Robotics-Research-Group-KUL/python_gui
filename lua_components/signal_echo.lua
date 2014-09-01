@@ -53,9 +53,9 @@ end
 -- automatically cleaned up. This means this must be done manually for
 -- long living components:
 function cleanupHook()
-   tc:removePort("inport")
+   tc:removePort("event_in")
    inport:delete()
-   tc:removePort("outport")
+   tc:removePort("event_out")
    outport:delete()
 end
 
