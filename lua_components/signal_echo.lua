@@ -6,7 +6,7 @@ depl:loadComponent("eventEcho", "OCL::LuaComponent")
 --... and get references to them
 eventEcho = depl:getPeer("eventEcho")
  -- load the Lua hooks
-eventEcho:exec_file(rttros.find_rospack(python_gui).."/signal_echo/signal_echo.lua")
+eventEcho:exec_file(rttros.find_rospack_roslua(python_gui).."/signal_echo/signal_echo.lua")
 --configure and starts
 eventEcho:configure()
 eventEcho:start()
