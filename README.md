@@ -49,3 +49,32 @@ orocos integration
 -----
 The file 'lua_components/signal_echo.lua'  is a an orocos component realized in lua, that reads a std_msgs/String from a topic and echos as a normal string.
 to connect easily with components running rFSM.  
+
+for loading the component (in indigo) try something like
+```
+require "rttlib"
+
+tc = tc or rtt.getTC()
+depl = depl or tc:getPeer("Deployer")
+depl:import("rtt_rosnode")
+depl:import("rtt_ros")
+depl:import("rtt_std_msgs")
+depl:import("rtt_rospack")-- this for using the find
+
+depl:loadComponent("eventEcho", "OCL::LuaComponent")
+eventEcho = depl:getPeer("eventEcho")
+eventEcho:exec_file( rtt.provides("ros"):find("python_gui").."/lua_components/signal_echo.lua")
+eventEcho:configure()
+
+--stream data to component
+cp_ros=rtt.Variable("ConnPolicy")
+cp_ros.transport=3
+cp_ros.name_id="/events"
+depl:stream("eventEcho.event_in",cp_ros)
+--here, connect "eventEcho.event_out" to some other component
+cp=rtt.Variable("ConnPolicy")
+cp.type=1-- a buffer
+cp.size=10
+--depl:connect("...","eventEcho.event_out",cp)
+```
+
