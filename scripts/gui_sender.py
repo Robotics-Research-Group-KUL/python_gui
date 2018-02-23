@@ -31,6 +31,8 @@ class Example(QtGui.QWidget):
         self.buttons={}
         self.create_buttons()
 
+
+
         
     def create_buttons(self):
         QtGui.QToolTip.setFont(QtGui.QFont('SansSerif', 10))
@@ -72,6 +74,7 @@ class Example(QtGui.QWidget):
         self.setGeometry(300, 300, 290, 150)
         self.move(1500, 150)
         self.setWindowTitle('Event sender')
+        self.setWindowIcon(QtGui.QIcon(unicode(get_pkg_dir("python_gui")) + '/resources/es_ico.png'))
         self.show()
         
             
