@@ -1,9 +1,14 @@
-GUI in python
+Event sender and interactive marker to send events or reference frames
 ================================
 
-Collection of small programs to use with ros.
+This branch has been updated to work with python3 and Qt5
 
 gui_sender.py
+----------------
+
+Dependecies
+PyQt5
+lxml (python3-lxml)
 -------------------------
 A simple interface that reads from an xml file with the format
 
