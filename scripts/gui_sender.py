@@ -13,10 +13,10 @@ roslib.load_manifest("python_gui")
 
     
 
-class Example(QtWidgets.QWidget):
+class EventSender(QtWidgets.QWidget):
     
     def __init__(self):
-        super(Example, self).__init__()
+        super(EventSender, self).__init__()
         self.initUI()
       
         
@@ -89,7 +89,7 @@ class Example(QtWidgets.QWidget):
 def sigint_handler(*args):
     """Handler for the SIGINT signal."""
     sys.stderr.write('\r')
-    QtGui.QApplication.quit()      
+    QtWidgets.QApplication.quit()
 import signal 
 def main():
     rospy.init_node("sender")
@@ -98,7 +98,7 @@ def main():
     timer = QtCore.QTimer()
     timer.start(500)  # You may change this if you wish.
     timer.timeout.connect(lambda: None)  # Let the interpreter run each 500 ms.
-    ex = Example()
+    ex = EventSender()
      
     status = app.exec_()
     sys.exit(status)
